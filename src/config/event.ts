@@ -15,8 +15,8 @@ export const eventConfig = {
   },
   date: {
     // Fecha y hora en formato ISO (zona horaria local del navegador del visitante)
-    iso: "2026-05-16T13:00:00",
-    display: "16 de Mayo 2026",
+    iso: "2027-04-17T13:00:00",
+    display: "17 de Abril 2027",
   },
   ceremony: {
     title: "Ceremonia de Confirmación",
