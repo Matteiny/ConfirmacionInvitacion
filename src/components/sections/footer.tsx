@@ -5,7 +5,7 @@ export function Footer() {
   const { child, sponsors, parents, credits } = eventConfig;
 
   return (
-    <footer className="relative isolate overflow-hidden bg-stone-900 px-6 pt-48 pb-12 text-center text-stone-300 sm:pt-64">
+    <footer className="relative isolate overflow-hidden bg-[#0f1115] px-6 pt-48 pb-12 text-center text-stone-300 sm:pt-64">
       <GrandstandCrowd className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-48 w-full sm:h-64" />
 
       <p className="font-heading text-xl text-white">{child.fullName}</p>

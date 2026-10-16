@@ -6,13 +6,15 @@ Diseñada para ser simple de usar también para invitados de mayor edad: sin gal
 
 ## ✨ Características
 
-- 🏎️ Diseño temático de carreras en todo el sitio: fondo degradado que pasa de colores desérticos (arriba) a asfalto (abajo), divisores tipo carretera, horizonte desértico en el hero (estilo Radiator Springs), bandera a cuadros de meta justo antes del cierre, y gradas de autódromo con público en el footer, tipografía lúdica
+- 🏎️ Diseño temático de carreras en todo el sitio: fondo degradado que pasa de colores desérticos (arriba) a asfalto nocturno (abajo), divisores tipo carretera, horizonte desértico en el hero (estilo Radiator Springs), bandera a cuadros de meta justo antes del cierre, y un estadio de autódromo de noche con multitud de colores, destellos y muro de contención en el footer, tipografía lúdica
 - 🏁 Pantalla de bienvenida "Toca para comenzar" que inicia la canción al entrar (los navegadores bloquean el audio automático sin interacción; este es el equivalente más cercano permitido)
 - ⏰ Contador regresivo hasta el día del evento
+- 📅 Botón "Agregar al calendario" (descarga un archivo .ics compatible con Google/Apple/Outlook Calendar)
 - 🗺️ Mapa y botón "Cómo llegar" para la ceremonia y la celebración
 - 💬 Confirmación de asistencia con **un solo toque**: dos botones grandes que abren WhatsApp con el mensaje ya escrito (sin formularios)
 - 📞 Alternativa de llamada directa para quienes prefieren no usar WhatsApp
 - 🎶 Reproductor oficial de Spotify embebido con una canción de la película
+- 🔗 Tarjeta de vista previa (Open Graph) y favicon temáticos, generados por código: al compartir el link en WhatsApp se ve una tarjeta bonita en vez de un link pelado
 - 📱 Diseño responsivo, adaptado a móviles y escritorio
 
 ## 🛠️ Tecnologías
@@ -34,7 +36,7 @@ Edita ahí: nombre del bebé (y género, para los textos automáticos), padrinos
 
 Para cambiar la canción: entra a la pista en [open.spotify.com](https://open.spotify.com), copia el ID que aparece en la URL (`open.spotify.com/track/<ID>`) y reemplázalo en `spotifyTrackId`.
 
-> Nota sobre el tema "Cars": por derechos de autor no se incluye ningún arte oficial de Disney/Pixar ni audio descargado de la canción, ni siquiera para uso privado/personal — publicarlo en un sitio web sigue siendo distribución. El fondo del hero usa un horizonte desértico dibujado originalmente (`src/components/desert-skyline.tsx`), y el cierre del sitio usa unas gradas de autódromo con público (`src/components/grandstand-crowd.tsx`), ambos inspirados en el escenario de la película sin reproducir ningún personaje. La canción se reproduce mediante el widget oficial embebido de Spotify (`src/components/sections/song.tsx`, vía el Spotify iFrame API), sin alojar ningún archivo de audio en el repositorio. Si tienes imágenes con licencia propia que quieras usar, puedes agregarlas tú mismo en `public/`.
+> Nota sobre el tema "Cars": por derechos de autor no se incluye ningún arte oficial de Disney/Pixar ni audio descargado de la canción, ni siquiera para uso privado/personal — publicarlo en un sitio web sigue siendo distribución. El fondo del hero usa un horizonte desértico dibujado originalmente (`src/components/desert-skyline.tsx`), y el cierre del sitio usa un estadio de autódromo con público y destellos dibujado originalmente (`src/components/grandstand-crowd.tsx`), ambos inspirados en el ambiente de la película sin reproducir ninguna escena ni personaje. La canción se reproduce mediante el widget oficial embebido de Spotify (`src/components/sections/song.tsx`, vía el Spotify iFrame API), sin alojar ningún archivo de audio en el repositorio. Si tienes imágenes con licencia propia que quieras usar, puedes agregarlas tú mismo en `public/`.
 
 ## 🚀 Instalación y desarrollo
 

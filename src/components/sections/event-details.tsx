@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { AddToCalendar } from "@/components/add-to-calendar";
 import { Countdown } from "@/components/sections/countdown";
 import { eventConfig } from "@/config/event";
 
@@ -82,8 +83,11 @@ export function EventDetails() {
         <h2 className="text-center font-heading text-3xl font-semibold text-stone-900">
           Detalles del Evento
         </h2>
-        <div className="mt-10 mb-12 flex justify-center">
+        <div className="mt-10 mb-6 flex justify-center">
           <Countdown />
+        </div>
+        <div className="mb-12 flex justify-center">
+          <AddToCalendar />
         </div>
         <div className="grid gap-6 sm:grid-cols-2">
           <DetailCard

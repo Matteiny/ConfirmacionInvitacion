@@ -1,30 +1,61 @@
-// Ilustración original: gradas de un autódromo con público en varios
-// niveles (siluetas genéricas, algunas "tomando fotos"), para ambientar el
-// cierre del sitio sin reproducir ningún personaje con derechos de autor.
+// Ilustración original: un estadio de autódromo de noche, con multitud de
+// puntos de colores representando al público y destellos tipo flash,
+// inspirado en el ambiente de "Cars" sin copiar ninguna escena ni
+// personaje con derechos de autor.
 
-function Spectator({ x, y, flash = false }: { x: number; y: number; flash?: boolean }) {
-  return (
-    <g>
-      <rect x={x - 2.5} y={y} width={5} height={7} rx={1.5} className="fill-stone-600" />
-      <circle cx={x} cy={y - 2.5} r={2.3} className="fill-stone-600" />
-      {flash && (
-        <rect x={x - 3.5} y={y - 8} width={3} height={2} rx={0.5} className="fill-amber-300/90" />
-      )}
-    </g>
-  );
+const CROWD_COLORS = ["#ef4444", "#3b82f6", "#f59e0b", "#f1f5f9", "#14b8a6", "#a855f7"];
+
+// Hash determinista (mismo resultado en servidor y cliente) para distribuir
+// colores y variar posiciones sin depender de Math.random().
+function pseudoRandom(seed: number) {
+  const x = Math.sin(seed * 12.9898) * 43758.5453;
+  return x - Math.floor(x);
 }
 
-function CrowdRow({ y, offset = 0 }: { y: number; offset?: number }) {
-  const xs = Array.from({ length: 28 }, (_, i) => 12 + offset + i * 14).filter((x) => x <= 392);
+function CrowdField({
+  yTop,
+  yBottom,
+  count,
+  radius,
+  seedOffset,
+}: {
+  yTop: number;
+  yBottom: number;
+  count: number;
+  radius: number;
+  seedOffset: number;
+}) {
+  const dots = Array.from({ length: count }, (_, i) => {
+    const x = 2 + (i / (count - 1)) * 396 + (pseudoRandom(i + seedOffset) - 0.5) * 6;
+    const y = yTop + pseudoRandom(i + seedOffset + 500) * (yBottom - yTop);
+    const color = CROWD_COLORS[Math.floor(pseudoRandom(i + seedOffset + 900) * CROWD_COLORS.length)];
+    return { x, y, color };
+  });
 
   return (
     <>
-      {xs.map((x, i) => (
-        <Spectator key={x} x={x} y={y} flash={i % 6 === 3} />
+      {dots.map((d, i) => (
+        <circle key={i} cx={d.x} cy={d.y} r={radius} fill={d.color} fillOpacity={0.85} />
       ))}
     </>
   );
 }
+
+function Sparkle({ x, y, size = 3.2 }: { x: number; y: number; size?: number }) {
+  return (
+    <g stroke="#e0f2fe" strokeWidth={0.7} strokeLinecap="round" opacity={0.9}>
+      <line x1={x - size} y1={y} x2={x + size} y2={y} />
+      <line x1={x} y1={y - size} x2={x} y2={y + size} />
+      <circle cx={x} cy={y} r={1} fill="#e0f2fe" />
+    </g>
+  );
+}
+
+const SPARKLES = Array.from({ length: 16 }, (_, i) => ({
+  x: 10 + pseudoRandom(i + 40) * 380,
+  y: 8 + pseudoRandom(i + 140) * 108,
+  size: 2 + pseudoRandom(i + 240) * 2.2,
+}));
 
 export function GrandstandCrowd({ className = "" }: { className?: string }) {
   return (
@@ -35,32 +66,40 @@ export function GrandstandCrowd({ className = "" }: { className?: string }) {
       className={className}
       aria-hidden
     >
-      {/* Gradas escalonadas (3 niveles) */}
-      <path d="M0 18 L400 18 L400 150 L0 150 Z" className="fill-stone-700" />
-      <path d="M0 52 L400 52 L400 150 L0 150 Z" className="fill-stone-800" />
-      <path d="M0 86 L400 86 L400 150 L0 150 Z" className="fill-stone-900" />
+      {/* Resplandor nocturno de los reflectores del estadio */}
+      <rect x="0" y="0" width="400" height="150" fill="url(#stadiumGlow)" />
+      <defs>
+        <radialGradient id="stadiumGlow" cx="50%" cy="0%" r="90%">
+          <stop offset="0%" stopColor="#1e3a5f" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="#0b0d12" stopOpacity="0" />
+        </radialGradient>
+      </defs>
 
-      {/* Pretiles de cada nivel */}
-      <rect x="0" y="15" width="400" height="3" className="fill-stone-600" />
-      <rect x="0" y="49" width="400" height="3" className="fill-stone-700" />
-      <rect x="0" y="83" width="400" height="3" className="fill-stone-800" />
+      {/* Multitud en 3 niveles de grada, más densa y brillante al frente */}
+      <CrowdField yTop={6} yBottom={42} count={110} radius={1.1} seedOffset={1} />
+      <CrowdField yTop={42} yBottom={78} count={120} radius={1.4} seedOffset={2} />
+      <CrowdField yTop={78} yBottom={116} count={130} radius={1.8} seedOffset={3} />
 
-      <CrowdRow y={38} />
-      <CrowdRow y={72} offset={7} />
-      <CrowdRow y={106} />
+      {SPARKLES.map((s, i) => (
+        <Sparkle key={i} x={s.x} y={s.y} size={s.size} />
+      ))}
 
-      {/* Pista al frente, con guardas rojo/blanco típicas de autódromo */}
-      <rect x="0" y="142" width="400" height="8" className="fill-stone-950" />
+      {/* Muro de contención azul y blanco, típico de un autódromo */}
+      <rect x="0" y="118" width="400" height="14" fill="#1d4ed8" />
       {Array.from({ length: 20 }).map((_, i) => (
         <rect
           key={i}
           x={i * 20}
-          y="142"
+          y="118"
           width="10"
-          height="3"
-          className={i % 2 === 0 ? "fill-red-600/80" : "fill-stone-100/90"}
+          height="14"
+          fill={i % 5 === 0 ? "#ef4444" : "#f8fafc"}
         />
       ))}
+
+      {/* Pista de asfalto en primer plano */}
+      <rect x="0" y="132" width="400" height="18" fill="#0f1115" />
+      <rect x="0" y="132" width="400" height="2" fill="#2a2d35" />
     </svg>
   );
 }
