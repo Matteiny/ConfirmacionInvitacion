@@ -45,7 +45,7 @@ export function MusicToggle() {
         aria-label={playing ? "Pausar música" : "Reproducir música"}
         aria-pressed={playing}
         title={eventConfig.music.title}
-        className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-amber-200 bg-white/90 text-amber-700 shadow-lg backdrop-blur transition hover:bg-white"
+        className="fixed right-6 bottom-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-red-200 bg-white/90 text-red-700 shadow-lg backdrop-blur transition hover:bg-white"
       >
         {playing ? <Volume2 className="h-5 w-5" /> : <VolumeX className="h-5 w-5" />}
       </button>

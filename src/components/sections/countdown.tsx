@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Gauge } from "lucide-react";
 import { eventConfig } from "@/config/event";
 
 type TimeLeft = {
@@ -45,7 +46,7 @@ export function Countdown() {
   if (!timeLeft) {
     return (
       <p className="text-center text-lg font-medium text-stone-700">
-        ¡Hoy es el gran día! 🎉
+        ¡Hoy llegamos a la meta! 🏁
       </p>
     );
   }
@@ -58,20 +59,26 @@ export function Countdown() {
   ];
 
   return (
-    <div className="grid grid-cols-4 gap-3 sm:gap-6">
-      {units.map((unit) => (
-        <div
-          key={unit.label}
-          className="flex flex-col items-center rounded-2xl border border-amber-200 bg-white/80 px-3 py-4 shadow-sm backdrop-blur"
-        >
-          <span className="font-serif text-3xl font-semibold text-amber-700 sm:text-4xl tabular-nums">
-            {String(unit.value).padStart(2, "0")}
-          </span>
-          <span className="mt-1 text-xs uppercase tracking-wide text-stone-500">
-            {unit.label}
-          </span>
-        </div>
-      ))}
+    <div className="flex flex-col items-center gap-4">
+      <div className="flex items-center gap-2 text-sm font-semibold tracking-widest text-red-700 uppercase">
+        <Gauge className="h-4 w-4" aria-hidden />
+        Faltan para el gran día
+      </div>
+      <div className="grid grid-cols-4 gap-3 sm:gap-6">
+        {units.map((unit) => (
+          <div
+            key={unit.label}
+            className="flex flex-col items-center rounded-2xl border border-red-200 bg-white/80 px-3 py-4 shadow-sm backdrop-blur"
+          >
+            <span className="font-display text-2xl text-red-600 tabular-nums sm:text-3xl">
+              {String(unit.value).padStart(2, "0")}
+            </span>
+            <span className="mt-1 text-xs tracking-wide text-stone-500 uppercase">
+              {unit.label}
+            </span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

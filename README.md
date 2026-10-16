@@ -1,21 +1,24 @@
-# 🕊️ Confirmación - Invitación Digital
+# 🏁 Presentación de Fe - Invitación Digital
 
-Invitación digital interactiva para el Sacramento de la Confirmación. Construida como plantilla: todo el contenido (nombre, fechas, lugares, fotos, música, número de WhatsApp) es de ejemplo y debe reemplazarse antes de publicar.
+Invitación digital para una ceremonia de presentación de niños (dedicación de infantes), con temática de carreras. Construida como plantilla: todo el contenido (nombre, fechas, lugares, padrinos, número de WhatsApp) es de ejemplo y debe reemplazarse antes de publicar.
+
+Diseñada para ser simple de usar también para invitados de mayor edad: sin galería de fotos ni formularios de RSVP, solo botones directos.
 
 ## ✨ Características
 
-- 🎠 Galería de fotos con carrusel automático y navegación manual
+- 🏎️ Diseño temático de carreras (franja a cuadros, divisores tipo carretera, tipografía lúdica)
 - ⏰ Contador regresivo hasta el día del evento
+- 🗺️ Mapa y botón "Cómo llegar" para la ceremonia y la celebración
+- 💬 Confirmación de asistencia con **un solo toque**: dos botones grandes que abren WhatsApp con el mensaje ya escrito (sin formularios)
+- 📞 Alternativa de llamada directa para quienes prefieren no usar WhatsApp
 - 🎵 Música de fondo con control de encendido/apagado
-- 📱 Confirmación de asistencia (RSVP) vía WhatsApp
-- 🗺️ Mapas integrados para la ceremonia y la recepción
-- 🎨 Diseño responsivo, adaptado a móviles y escritorio
+- 📱 Diseño responsivo, adaptado a móviles y escritorio
 
 ## 🛠️ Tecnologías
 
 - [Next.js](https://nextjs.org/) (App Router) + TypeScript
 - Tailwind CSS v4
-- [shadcn/ui](https://ui.shadcn.com/)
+- [shadcn/ui](https://ui.shadcn.com/) (sobre Base UI)
 - [lucide-react](https://lucide.dev/) para iconografía
 
 ## 📝 Personalizar el contenido
@@ -26,12 +29,13 @@ Toda la información del evento vive en un solo archivo:
 src/config/event.ts
 ```
 
-Edita ahí: nombre del confirmante, padrino/madrina, padres, fecha, lugar y hora de la ceremonia y la recepción, y el número de WhatsApp para el RSVP (formato internacional sin signos, ej. `521234567890`).
+Edita ahí: nombre del bebé (y género, para los textos automáticos), padrinos, padres, fecha, lugar y hora de la ceremonia y la celebración, y el número de WhatsApp para el RSVP (formato internacional sin signos, ej. `521234567890`).
 
-Otros contenidos a reemplazar:
+Otro contenido a reemplazar:
 
-- **Fotos**: agrega tus imágenes en `public/gallery/` y actualiza el arreglo `photos` en `src/components/sections/gallery.tsx`.
 - **Música de fondo**: coloca un archivo con licencia válida en `public/audio/musica-fondo.mp3` (o cambia la ruta en `event.ts`).
+
+> Nota sobre el tema "Cars": por derechos de autor no se incluye ningún arte oficial de Disney/Pixar — el diseño usa una paleta de carreras (rojo, óxido, bandera a cuadros) inspirada en el tema, sin reproducir los personajes. Si quieres imágenes oficiales, puedes agregarlas tú mismo en `public/` desde material con licencia propia.
 
 ## 🚀 Instalación y desarrollo
 

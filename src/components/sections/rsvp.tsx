@@ -1,122 +1,72 @@
-"use client";
-
-import { FormEvent, useState } from "react";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { eventConfig } from "@/config/event";
 
+function whatsappUrl(attending: boolean) {
+  const message = attending
+    ? `¡Hola! Con mucha alegría confirmo que SÍ asistiré a la presentación de ${eventConfig.child.fullName} 🏁`
+    : `Hola, lamento informarles que no podré asistir a la presentación de ${eventConfig.child.fullName}. ¡Gracias por la invitación! 💛`;
+
+  return `https://wa.me/${eventConfig.rsvp.whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
 export function Rsvp() {
-  const [name, setName] = useState("");
-  const [guests, setGuests] = useState("1");
-  const [attending, setAttending] = useState<"si" | "no">("si");
-  const [message, setMessage] = useState("");
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-
-    const lines = [
-      `¡Hola! Confirmo mi asistencia a la Confirmación de ${eventConfig.confirmand.fullName}.`,
-      `Nombre: ${name || "(sin nombre)"}`,
-      `Asistencia: ${attending === "si" ? "Sí asistiré" : "No podré asistir"}`,
-      attending === "si" ? `Número de personas: ${guests}` : null,
-      message ? `Mensaje: ${message}` : null,
-    ].filter(Boolean);
-
-    const text = encodeURIComponent(lines.join("\n"));
-    const url = `https://wa.me/${eventConfig.rsvp.whatsappNumber}?text=${text}`;
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
-
   return (
-    <section className="bg-white px-6 py-20">
-      <div className="mx-auto max-w-lg">
-        <Card className="border-amber-200/70">
+    <section className="bg-stone-50 px-6 py-20">
+      <div className="mx-auto max-w-md">
+        <Card className="border-stone-200">
           <CardHeader>
-            <CardTitle className="text-center font-serif text-3xl text-stone-900">
+            <CardTitle className="text-center font-heading text-3xl text-stone-900">
               Confirma tu Asistencia
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-1.5">
-                <label htmlFor="name" className="text-sm font-medium text-stone-700">
-                  Nombre completo
-                </label>
-                <Input
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Tu nombre"
-                  required
+          <CardContent className="space-y-4">
+            <p className="text-center text-sm text-stone-500">
+              Toca un botón: te llevamos directo a WhatsApp con el mensaje ya
+              listo para enviar.
+            </p>
+
+            <Button
+              size="lg"
+              nativeButton={false}
+              className="w-full gap-2 bg-red-600 hover:bg-red-700"
+              render={
+                <a
+                  href={whatsappUrl(true)}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 />
-              </div>
+              }
+            >
+              <MessageCircle className="h-5 w-5" />
+              Sí, ahí estaré
+            </Button>
 
-              <div className="space-y-1.5">
-                <span className="text-sm font-medium text-stone-700">
-                  ¿Asistirás?
-                </span>
-                <div className="flex gap-3">
-                  <Button
-                    type="button"
-                    variant={attending === "si" ? "default" : "outline"}
-                    className="flex-1"
-                    onClick={() => setAttending("si")}
-                  >
-                    Sí, ahí estaré
-                  </Button>
-                  <Button
-                    type="button"
-                    variant={attending === "no" ? "default" : "outline"}
-                    className="flex-1"
-                    onClick={() => setAttending("no")}
-                  >
-                    No podré ir
-                  </Button>
-                </div>
-              </div>
-
-              {attending === "si" && (
-                <div className="space-y-1.5">
-                  <label htmlFor="guests" className="text-sm font-medium text-stone-700">
-                    Número de personas
-                  </label>
-                  <Input
-                    id="guests"
-                    type="number"
-                    min={1}
-                    max={10}
-                    value={guests}
-                    onChange={(e) => setGuests(e.target.value)}
-                  />
-                </div>
-              )}
-
-              <div className="space-y-1.5">
-                <label htmlFor="message" className="text-sm font-medium text-stone-700">
-                  Mensaje (opcional)
-                </label>
-                <Textarea
-                  id="message"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Deja tus buenos deseos..."
-                  rows={3}
+            <Button
+              size="lg"
+              variant="outline"
+              nativeButton={false}
+              className="w-full gap-2"
+              render={
+                <a
+                  href={whatsappUrl(false)}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 />
-              </div>
+              }
+            >
+              <X className="h-4 w-4" />
+              No podré asistir
+            </Button>
 
-              <Button type="submit" className="w-full gap-2 bg-amber-700 hover:bg-amber-800">
-                <MessageCircle className="h-4 w-4" />
-                Enviar confirmación por WhatsApp
-              </Button>
-            </form>
+            <a
+              href={`tel:+${eventConfig.rsvp.whatsappNumber}`}
+              className="flex items-center justify-center gap-1.5 pt-2 text-sm text-stone-500 hover:text-stone-700"
+            >
+              <Phone className="h-4 w-4" aria-hidden />
+              Prefiero llamar: +{eventConfig.rsvp.whatsappNumber}
+            </a>
           </CardContent>
         </Card>
       </div>
