@@ -9,7 +9,6 @@ import { CheckeredStrip } from "@/components/checkered-strip";
 export default function Home() {
   return (
     <div className="flex flex-1 flex-col">
-      <CheckeredStrip />
       <Hero />
       <RoadDivider />
       <EventDetails />
@@ -17,6 +16,7 @@ export default function Home() {
       <Song />
       <RoadDivider />
       <Rsvp />
+      <CheckeredStrip />
       <Footer />
     </div>
   );

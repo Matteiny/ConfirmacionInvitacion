@@ -136,12 +136,15 @@
       linear-gradient(
         180deg,
         #fff7e6 0%,
-        #ffe8cc 20%,
-        #ffd1a6 45%,
-        #eaa876 72%,
-        #c97b4a 100%
+        #ffe8cc 14%,
+        #ffd1a6 30%,
+        #eaa876 46%,
+        #c97b4a 60%,
+        #8a6352 72%,
+        #5b5650 83%,
+        #39373a 93%,
+        #221f1c 100%
       );
-    background-attachment: fixed;
   }
   html {
     @apply font-sans;

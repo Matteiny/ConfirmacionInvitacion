@@ -6,7 +6,7 @@ Diseñada para ser simple de usar también para invitados de mayor edad: sin gal
 
 ## ✨ Características
 
-- 🏎️ Diseño temático de carreras en todo el sitio: fondo degradado tipo carretera/desierto, franja a cuadros, divisores tipo carretera, horizonte desértico en el hero (estilo Radiator Springs) y gradas de autódromo con público en el cierre, tipografía lúdica
+- 🏎️ Diseño temático de carreras en todo el sitio: fondo degradado que pasa de colores desérticos (arriba) a asfalto (abajo), divisores tipo carretera, horizonte desértico en el hero (estilo Radiator Springs), bandera a cuadros de meta justo antes del cierre, y gradas de autódromo con público en el footer, tipografía lúdica
 - 🏁 Pantalla de bienvenida "Toca para comenzar" que inicia la canción al entrar (los navegadores bloquean el audio automático sin interacción; este es el equivalente más cercano permitido)
 - ⏰ Contador regresivo hasta el día del evento
 - 🗺️ Mapa y botón "Cómo llegar" para la ceremonia y la celebración
