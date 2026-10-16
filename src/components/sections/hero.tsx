@@ -1,4 +1,5 @@
 import { Car, Flag } from "lucide-react";
+import { RacerSilhouette, TowTruckSilhouette } from "@/components/car-illustrations";
 import { eventConfig } from "@/config/event";
 
 export function Hero() {
@@ -8,8 +9,10 @@ export function Hero() {
   const loLa = isNiña ? "la" : "lo";
 
   return (
-    <section className="relative flex min-h-[85vh] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-amber-50 via-orange-50 to-white px-6 py-20 text-center">
+    <section className="relative isolate flex min-h-[85vh] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-amber-50 via-orange-50 to-white px-6 py-20 text-center">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_0%,theme(colors.red.200/40),transparent_60%)]" />
+      <RacerSilhouette className="pointer-events-none absolute -bottom-6 -left-10 -z-10 h-44 w-80 text-red-600/35 sm:h-64 sm:w-[28rem]" />
+      <TowTruckSilhouette className="pointer-events-none absolute -right-10 -bottom-6 -z-10 h-44 w-80 text-orange-800/35 sm:h-64 sm:w-[28rem]" />
 
       <div className="flex items-center gap-3">
         <Car className="h-7 w-7 text-red-600" aria-hidden />

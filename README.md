@@ -6,12 +6,12 @@ Diseñada para ser simple de usar también para invitados de mayor edad: sin gal
 
 ## ✨ Características
 
-- 🏎️ Diseño temático de carreras (franja a cuadros, divisores tipo carretera, tipografía lúdica)
+- 🏎️ Diseño temático de carreras (franja a cuadros, divisores tipo carretera, siluetas de auto y grúa, tipografía lúdica)
 - ⏰ Contador regresivo hasta el día del evento
 - 🗺️ Mapa y botón "Cómo llegar" para la ceremonia y la celebración
 - 💬 Confirmación de asistencia con **un solo toque**: dos botones grandes que abren WhatsApp con el mensaje ya escrito (sin formularios)
 - 📞 Alternativa de llamada directa para quienes prefieren no usar WhatsApp
-- 🎵 Música de fondo con control de encendido/apagado
+- 🎶 Reproductor oficial de Spotify embebido con una canción de la película
 - 📱 Diseño responsivo, adaptado a móviles y escritorio
 
 ## 🛠️ Tecnologías
@@ -29,13 +29,11 @@ Toda la información del evento vive en un solo archivo:
 src/config/event.ts
 ```
 
-Edita ahí: nombre del bebé (y género, para los textos automáticos), padrinos, padres, fecha, lugar y hora de la ceremonia y la celebración, y el número de WhatsApp para el RSVP (formato internacional sin signos, ej. `521234567890`).
+Edita ahí: nombre del bebé (y género, para los textos automáticos), padrinos, padres, fecha, lugar y hora de la ceremonia y la celebración, el número de WhatsApp para el RSVP (formato internacional sin signos, ej. `521234567890`), y la canción (`song`, con el ID de Spotify de la pista).
 
-Otro contenido a reemplazar:
+Para cambiar la canción: entra a la pista en [open.spotify.com](https://open.spotify.com), copia el ID que aparece en la URL (`open.spotify.com/track/<ID>`) y reemplázalo en `spotifyTrackId`.
 
-- **Música de fondo**: coloca un archivo con licencia válida en `public/audio/musica-fondo.mp3` (o cambia la ruta en `event.ts`).
-
-> Nota sobre el tema "Cars": por derechos de autor no se incluye ningún arte oficial de Disney/Pixar — el diseño usa una paleta de carreras (rojo, óxido, bandera a cuadros) inspirada en el tema, sin reproducir los personajes. Si quieres imágenes oficiales, puedes agregarlas tú mismo en `public/` desde material con licencia propia.
+> Nota sobre el tema "Cars": por derechos de autor no se incluye ningún arte oficial de Disney/Pixar ni audio descargado de la canción. El fondo del hero usa siluetas de auto y grúa dibujadas originalmente (`src/components/car-illustrations.tsx`), y la canción se reproduce mediante el widget oficial embebido de Spotify (`src/components/sections/song.tsx`), sin alojar ningún archivo de audio en el repositorio. Si tienes imágenes con licencia propia que quieras usar, puedes agregarlas tú mismo en `public/`.
 
 ## 🚀 Instalación y desarrollo
 

@@ -36,11 +36,14 @@ export const eventConfig = {
     // Número en formato internacional sin signos, ej. 521234567890
     whatsappNumber: "521234567890",
   },
-  music: {
-    // Coloca tu pista en public/audio/musica-fondo.mp3 (con licencia válida)
-    src: "/audio/musica-fondo.mp3",
-    title: "Música de fondo",
-    volume: 0.5,
+  song: {
+    // Reproductor oficial de Spotify (no se aloja ningún archivo de audio).
+    // Para cambiar la canción, reemplaza el ID: lo encuentras en la URL de
+    // Spotify, ej. https://open.spotify.com/track/<ID>
+    title: "Life is a Highway",
+    artist: "Rascal Flatts",
+    note: 'De la película "Cars"',
+    spotifyTrackId: "5YbeJyTQkdSAWe1Ie4sLAl",
   },
   credits: {
     text: "Con amor celebramos el regalo más grande de nuestras vidas",
