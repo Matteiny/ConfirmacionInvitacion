@@ -1,5 +1,4 @@
 import { Car, Flag } from "lucide-react";
-import { CheckeredRibbon } from "@/components/checkered-ribbon";
 import { DesertSkyline } from "@/components/desert-skyline";
 import { eventConfig } from "@/config/event";
 
@@ -13,8 +12,6 @@ export function Hero() {
     <section className="relative isolate flex min-h-[85vh] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-amber-50 via-orange-50 to-white px-6 py-20 text-center">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_0%,theme(colors.red.200/40),transparent_60%)]" />
       <DesertSkyline className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-56 w-full sm:h-72" />
-      <CheckeredRibbon className="pointer-events-none absolute -top-10 -right-14 -z-10 h-10 w-44 sm:-top-12 sm:h-12 sm:w-56" />
-      <CheckeredRibbon className="pointer-events-none absolute -bottom-10 -left-14 -z-10 h-10 w-44 sm:-bottom-12 sm:h-12 sm:w-56" />
 
       <div className="flex items-center gap-3">
         <Car className="h-7 w-7 text-red-600" aria-hidden />

@@ -6,7 +6,7 @@ Diseñada para ser simple de usar también para invitados de mayor edad: sin gal
 
 ## ✨ Características
 
-- 🏎️ Diseño temático de carreras en todo el sitio: fondo degradado tipo carretera/desierto, franja a cuadros, divisores tipo carretera, horizonte desértico con cintas a cuadros en el hero (estilo Radiator Springs), tipografía lúdica
+- 🏎️ Diseño temático de carreras en todo el sitio: fondo degradado tipo carretera/desierto, franja a cuadros, divisores tipo carretera, horizonte desértico en el hero (estilo Radiator Springs) y gradas de autódromo con público en el cierre, tipografía lúdica
 - 🏁 Pantalla de bienvenida "Toca para comenzar" que inicia la canción al entrar (los navegadores bloquean el audio automático sin interacción; este es el equivalente más cercano permitido)
 - ⏰ Contador regresivo hasta el día del evento
 - 🗺️ Mapa y botón "Cómo llegar" para la ceremonia y la celebración
@@ -34,7 +34,7 @@ Edita ahí: nombre del bebé (y género, para los textos automáticos), padrinos
 
 Para cambiar la canción: entra a la pista en [open.spotify.com](https://open.spotify.com), copia el ID que aparece en la URL (`open.spotify.com/track/<ID>`) y reemplázalo en `spotifyTrackId`.
 
-> Nota sobre el tema "Cars": por derechos de autor no se incluye ningún arte oficial de Disney/Pixar ni audio descargado de la canción, ni siquiera para uso privado/personal — publicarlo en un sitio web sigue siendo distribución. El fondo del hero usa un horizonte desértico y una cinta a cuadros dibujados originalmente (`src/components/desert-skyline.tsx`, `src/components/checkered-ribbon.tsx`), inspirados en el escenario de la película sin reproducir ningún personaje. La canción se reproduce mediante el widget oficial embebido de Spotify (`src/components/sections/song.tsx`, vía el Spotify iFrame API), sin alojar ningún archivo de audio en el repositorio. Si tienes imágenes con licencia propia que quieras usar, puedes agregarlas tú mismo en `public/`.
+> Nota sobre el tema "Cars": por derechos de autor no se incluye ningún arte oficial de Disney/Pixar ni audio descargado de la canción, ni siquiera para uso privado/personal — publicarlo en un sitio web sigue siendo distribución. El fondo del hero usa un horizonte desértico dibujado originalmente (`src/components/desert-skyline.tsx`), y el cierre del sitio usa unas gradas de autódromo con público (`src/components/grandstand-crowd.tsx`), ambos inspirados en el escenario de la película sin reproducir ningún personaje. La canción se reproduce mediante el widget oficial embebido de Spotify (`src/components/sections/song.tsx`, vía el Spotify iFrame API), sin alojar ningún archivo de audio en el repositorio. Si tienes imágenes con licencia propia que quieras usar, puedes agregarlas tú mismo en `public/`.
 
 ## 🚀 Instalación y desarrollo
 
