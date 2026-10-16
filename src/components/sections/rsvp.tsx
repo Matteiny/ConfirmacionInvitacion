@@ -13,7 +13,7 @@ function whatsappUrl(attending: boolean) {
 
 export function Rsvp() {
   return (
-    <section className="bg-stone-50 px-6 py-20">
+    <section className="bg-white/60 px-6 py-20 backdrop-blur-sm">
       <div className="mx-auto max-w-md">
         <Card className="border-stone-200">
           <CardHeader>

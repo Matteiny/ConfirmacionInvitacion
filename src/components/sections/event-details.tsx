@@ -77,7 +77,7 @@ function DetailCard({
 
 export function EventDetails() {
   return (
-    <section className="bg-white px-6 py-20">
+    <section className="bg-white/75 px-6 py-20 backdrop-blur-sm">
       <div className="mx-auto max-w-4xl">
         <h2 className="text-center font-heading text-3xl font-semibold text-stone-900">
           Detalles del Evento

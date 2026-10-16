@@ -123,7 +123,25 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background-color: var(--background);
+    background-image:
+      repeating-linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.4) 0px,
+        rgba(255, 255, 255, 0.4) 2px,
+        transparent 2px,
+        transparent 18px
+      ),
+      linear-gradient(
+        180deg,
+        #fff7e6 0%,
+        #ffe8cc 20%,
+        #ffd1a6 45%,
+        #eaa876 72%,
+        #c97b4a 100%
+      );
+    background-attachment: fixed;
   }
   html {
     @apply font-sans;
