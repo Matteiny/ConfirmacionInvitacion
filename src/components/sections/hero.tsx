@@ -27,23 +27,28 @@ export function Hero() {
         {child.fullName}
       </h1>
 
-      <div className="mt-6 flex items-center gap-3 text-stone-400">
-        <span className="h-px w-10 bg-stone-300" />
-        <span className="text-xs font-semibold tracking-widest uppercase">
-          En ruta hacia la fe
-        </span>
-        <span className="h-px w-10 bg-stone-300" />
+      {/* Tarjeta translúcida: esta zona del Hero puede caer sobre el
+          horizonte desértico según el alto de pantalla, así que todo el
+          bloque lleva un fondo propio para seguir siendo legible. */}
+      <div className="mt-6 w-full max-w-md rounded-3xl bg-white/85 px-6 py-6 shadow-sm backdrop-blur-sm">
+        <div className="flex items-center justify-center gap-3 text-stone-400">
+          <span className="h-px w-10 bg-stone-300" />
+          <span className="text-xs font-semibold tracking-widest uppercase">
+            En ruta hacia la fe
+          </span>
+          <span className="h-px w-10 bg-stone-300" />
+        </div>
+
+        <p className="mt-4 text-balance text-lg text-stone-700">
+          Con todo nuestro amor, presentamos ante Dios y nuestra familia a
+          nuestr{isNiña ? "a" : "o"} {hijoWord}, comprometiéndonos a guiar
+          {loLa} siempre por el camino de la fe.
+        </p>
+
+        <p className="mt-4 text-lg font-bold text-red-700">
+          {eventConfig.date.display}
+        </p>
       </div>
-
-      <p className="mt-6 max-w-md text-balance text-lg text-stone-600">
-        Con todo nuestro amor, presentamos ante Dios y nuestra familia a
-        nuestr{isNiña ? "a" : "o"} {hijoWord}, comprometiéndonos a guiar
-        {loLa} siempre por el camino de la fe.
-      </p>
-
-      <p className="mt-8 inline-block rounded-full bg-white/90 px-4 py-1.5 text-base font-semibold text-red-700 shadow-sm backdrop-blur-sm">
-        {eventConfig.date.display}
-      </p>
     </section>
   );
 }
