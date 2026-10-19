@@ -41,7 +41,7 @@ export function Hero() {
         {loLa} siempre por el camino de la fe.
       </p>
 
-      <p className="mt-8 text-base font-semibold text-red-700">
+      <p className="mt-8 inline-block rounded-full bg-white/90 px-4 py-1.5 text-base font-semibold text-red-700 shadow-sm backdrop-blur-sm">
         {eventConfig.date.display}
       </p>
     </section>

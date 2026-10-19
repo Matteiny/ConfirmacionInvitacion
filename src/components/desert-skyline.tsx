@@ -28,11 +28,11 @@ export function DesertSkyline({ className = "" }: { className?: string }) {
       />
       {/* Suelo / primer plano */}
       <path d="M0 130 L400 130 L400 160 L0 160 Z" className="fill-orange-950/30" />
-      {/* Camino en perspectiva hacia el horizonte */}
-      <path d="M170 160 L230 160 L205 122 L195 122 Z" className="fill-stone-800/70" />
-      <rect x="198" y="150" width="4" height="8" className="fill-amber-300/80" />
-      <rect x="199" y="136" width="2.5" height="6" className="fill-amber-300/70" />
-      <rect x="199.5" y="126" width="1.5" height="4" className="fill-amber-300/60" />
+      {/* Camino en perspectiva, termina justo en la base de la montaña (y=130) */}
+      <path d="M172 160 L228 160 L203 130 L197 130 Z" className="fill-stone-800/70" />
+      <rect x="198" y="152" width="4" height="7" className="fill-amber-300/80" />
+      <rect x="198.8" y="140" width="2.4" height="5" className="fill-amber-300/70" />
+      <rect x="199.3" y="131.5" width="1.4" height="3" className="fill-amber-300/60" />
     </svg>
   );
 }
